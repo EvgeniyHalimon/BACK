@@ -6,6 +6,7 @@ const PORT = 3000
 
 const server = http.createServer((req,res) => {
     console.log('server request')
+    console.log('TEST MY NODEMON')
     res.setHeader('Content-Type', 'text/html')
 
     const createPath = (page) => path.resolve(__dirname, 'views', `${page}.html`)
