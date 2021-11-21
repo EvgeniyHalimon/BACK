@@ -2,9 +2,9 @@
   "name": "node-js",
   "version": "0.0.1",
   "description": "training project",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
