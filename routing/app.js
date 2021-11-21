@@ -14,10 +14,15 @@ const server = http.createServer((req,res) => {
 
     switch(req.url){
         case '/':
+        case '/home' :
             basePath = createPath('index')
             res.statusCode = 200
             break
         case '/about-us': 
+            res.statusCode = 301
+            res.setHeader('Location', '/contacts')
+            res.end()
+            break
         case '/contacts':
             basePath = createPath('contacts')
             res.statusCode = 200
@@ -28,18 +33,17 @@ const server = http.createServer((req,res) => {
             break
     }
 
-    if(req.url = '/'){
-        fs.readFile(basePath, (err, data) => {
-            if(err){
-                console.log(err)
-                res.statusCode = 500
-                res.end()
-            } else {
-                res.write(data)
-                res.end()
-            }
-        })
-    }
+    fs.readFile(basePath, (err, data) => {
+        if(err){
+            console.log(err)
+            res.statusCode = 500
+            res.end()
+        } else {
+            res.write(data)
+            res.end()
+        }
+    })
+    
 })
 
 server.listen(PORT, 'localhost', (error) => {
